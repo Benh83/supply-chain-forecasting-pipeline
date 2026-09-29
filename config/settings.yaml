@@ -1,0 +1,93 @@
+# All tunable numbers live here. Nothing below is tied to a real store.
+
+paths:
+  sales: data/df_store_1_daily_sales.csv
+  products: data/products.csv
+  border: data/border_crossings_monthly.csv
+  inventory: data/inventory_snapshot.csv   # optional; synthetic snapshot is used if missing
+
+forecast:
+  confidence: 0.90
+  horizons: [1, 2, 3]
+
+  # Model-selection rules (original thresholds, kept as-is)
+  rules:
+    border_corr: 0.47          # |corr| with a border series -> SARIMAX with border data
+    autocorr: 0.55             # max |ACF| in lags 1-3 -> ARIMA
+    seasonal_strength: 0.83    # between-month variance share -> seasonal model
+    seasonal_strength_soft: 0.50
+    sparsity: 0.27             # share of zero months -> intermittent-demand model
+    min_nonzero: 3
+    dead_months: 6             # no sales in last N months -> forecast 0
+    december_boost: 1.5        # relaxes safety cap for December products
+
+  # Statistical tests added on top of the rules
+  tests:
+    alpha: 0.05                # significance level for correlation / Ljung-Box / ADF / KPSS
+    max_acf_lag: 3
+    seasonal_diff_strength: 0.64   # STL seasonal strength above which D=1
+    min_obs_seasonal: 24           # seasonal ARIMA terms need two full years
+    max_d: 1
+
+  arima_grid:
+    max_p: 2
+    max_q: 2
+    max_pq: 2                  # p + q <= 2 keeps short series from being overfit
+    seasonal_PQ: [[0, 0], [1, 0], [0, 1]]
+
+  trend_window: 6
+
+store:
+  id: df_store_1
+  overflow_pallets: 2.0
+  overflow_categories: [alcohol, luxury]
+  cooler_pallets: 1.5
+
+depots:
+  BEV_PER:
+    name: Beverage & Perishable Depot
+    distance_miles: 50
+    delivery_weekdays: [1, 4]          # Monday=0 -> Tuesday, Friday
+    lead_time_days: 1
+    truck_pallets: 6
+    trip_cost: 350
+    priority: service_level
+    service_level:
+      alcohol: 0.99
+      nonalc_beverage: 0.95
+    perishable:
+      max_spoilage_share: 0.03         # expected spoiled units / expected sales within shelf life
+      long_life_days: 30               # longer shelf life -> ordinary service level, not newsvendor
+      long_life_service_level: 0.95
+    cut_order: [nonalc_beverage, perishable, alcohol]   # cut first -> cut last
+
+  LUX:
+    name: Luxury Goods Depot
+    distance_miles: 200
+    delivery_every_n_weeks: 2
+    delivery_weekday: 2                # Wednesday
+    delivery_anchor: "2019-01-02"
+    lead_time_days: 4
+    truck_pallets: 2
+    trip_cost: 1200
+    insured_value_cap: 25000
+    priority: presence
+    service_level:
+      luxury: 0.90
+    min_display_units: 1
+    cycling:
+      dying_runs: 2                    # consecutive monthly runs classed Dying/Dead
+      lookback_months: 12              # once triggered, stays phased out while down YoY
+
+  DRY:
+    name: Dry Goods & Tobacco Depot
+    distance_miles: 100
+    delivery_weekdays: [0]             # Monday
+    lead_time_days: 2
+    truck_pallets: 8
+    trip_cost: 500
+    priority: cost
+    service_level:
+      tobacco: 0.95
+      dry: 0.95
+    min_economic_pallets: 0.5          # below this a trip is poor value

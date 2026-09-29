@@ -1,0 +1,17 @@
+sku,description,category,family,depot,case_pack,cases_per_pallet,unit_cost,unit_price,shelf_max,needs_cooler,shelf_life_days,launch_date
+BEV-TEQ-01,Premium Tequila 750ml,alcohol,spirits,BEV_PER,6,60,22.0,38.0,72,0,,2019-01-01
+BEV-WHS-01,Blended Whisky 1L,alcohol,spirits,BEV_PER,6,50,18.0,32.0,48,0,,2019-01-01
+BEV-BER-12,Imported Beer 12-pack,alcohol,beer,BEV_PER,2,80,11.0,18.0,60,1,,2019-01-01
+BEV-WTR-01,Bottled Water 1L,nonalc_beverage,water,BEV_PER,12,84,0.5,1.5,240,1,,2019-01-01
+BEV-NRG-01,Energy Drink 16oz,nonalc_beverage,energy,BEV_PER,24,90,1.1,2.9,144,1,,2019-01-01
+PER-CHO-01,Boxed Chocolates,perishable,confection,BEV_PER,12,100,6.0,14.0,60,0,180.0,2019-01-01
+PER-FRT-01,Fresh Fruit Cup,perishable,fresh,BEV_PER,12,70,1.2,3.5,60,1,5.0,2019-01-01
+LUX-FRG-A,Fragrance A 100ml,luxury,fragrance,LUX,1,300,55.0,98.0,40,0,,2019-01-01
+LUX-FRG-B,Fragrance B 50ml,luxury,fragrance,LUX,1,400,48.0,85.0,30,0,,2019-01-01
+LUX-SUN-X,Sunglasses Model X,luxury,sunglasses,LUX,1,200,70.0,145.0,24,0,,2019-01-01
+LUX-SUN-Y,Sunglasses Model Y,luxury,sunglasses,LUX,1,200,75.0,155.0,24,0,,2023-03-01
+LUX-WAL-01,Designer Leather Wallet,luxury,leather,LUX,1,150,160.0,320.0,4,0,,2019-01-01
+DRY-CIG-10,Cigarettes Carton,tobacco,tobacco,DRY,50,40,28.0,42.0,450,0,,2019-01-01
+DRY-CND-01,Travel Candy Tin,dry,candy,DRY,24,60,2.0,5.5,168,0,,2019-01-01
+DRY-TRV-01,Travel Neck Pillow,dry,travel,DRY,12,20,7.0,19.0,84,0,,2019-01-01
+DRY-USB-01,USB Charging Cable,dry,electronics,DRY,20,80,3.0,12.0,120,0,,2019-01-01
