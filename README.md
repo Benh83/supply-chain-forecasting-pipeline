@@ -25,7 +25,7 @@ python -m forecasting.backtest --start 2022-03 --end 2025-06 --step 3
 **Hosting:** push the repo to GitHub, then create an app on Streamlit Community
 Cloud pointing at `app.py`. It installs `requirements.txt` itself. Each
 selection reruns the forecasts for that depot (about 1-3 seconds); results are
-cached per depot and month.
+saved per depot and month.
 
 ## Layout
 
