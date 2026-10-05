@@ -1,13 +1,26 @@
 # Supply Chain Forecasting Pipeline
 
-This pipeline uses statistical tests to find the best model for a wide range of products, and produces monthly demand forecasts for a duty free store at the US-Mexico border. This demand information is synthesized with supply chain information and stocking priorities to suggest ordering from three different depots. A small Streamlit page shows the
-forecast and actual sales for any month, and lists the ordering suggestions
+This pipeline uses statistical tests to find the best model for a wide range of products, and produces monthly demand forecasts for a duty free store at the US-Mexico border. This demand information is synthesized with supply chain information and stocking priorities to suggest ordering from three different depots. A small Streamlit page shows the forecast and actual sales for any month, and lists the ordering suggestions.
+
+**Live demo:** https://supply-chain-forecast.streamlit.app
 
 All sales, product and inventory data here are **synthetic**. The border data
 is public.
 
+## Quick start
+
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python scripts/generate_synthetic_data.py      # optional: data is already committed
+pytest                                         # unit tests
+streamlit run app.py                           # the page
+python -m forecasting.pipeline --cutoff 2025-06 --out forecasts.csv
+python -m forecasting.backtest --start 2022-03 --end 2025-06 --step 3
 ```
-**Live demo:** https://supply-chain-forecast.streamlit.app
+
+Each selection on the page reruns the forecasts for that product's depot
+(about 1–3 seconds).
 
 ## Layout
 
