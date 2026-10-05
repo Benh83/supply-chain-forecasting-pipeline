@@ -21,11 +21,7 @@ streamlit run app.py                           # the page
 python -m forecasting.pipeline --cutoff 2025-06 --out forecasts.csv
 python -m forecasting.backtest --start 2022-03 --end 2025-06 --step 3
 ```
-
-**Hosting:** push the repo to GitHub, then create an app on Streamlit Community
-Cloud pointing at `app.py`. It installs `requirements.txt` itself. Each
-selection reruns the forecasts for that depot (about 1-3 seconds); results are
-saved per depot and month.
+**Live demo:** https://supply-chain-forecast.streamlit.app
 
 ## Layout
 
