@@ -7,20 +7,6 @@ All sales, product and inventory data here are **synthetic**. The border data
 is public.
 
 ```
-streamlit run app.py
-```
-
-## Quick start
-
-```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-python scripts/generate_synthetic_data.py      # optional: data is already committed
-pytest                                         # unit tests
-streamlit run app.py                           # the page
-python -m forecasting.pipeline --cutoff 2025-06 --out forecasts.csv
-python -m forecasting.backtest --start 2022-03 --end 2025-06 --step 3
-```
 **Live demo:** https://supply-chain-forecast.streamlit.app
 
 ## Layout
