@@ -186,5 +186,4 @@ page says to keep one on display, move the rest to overflow and mark it down.
   understate demand; real data should be corrected for that first.
 - Monthly forecasts are spread evenly within the month. There are no
   weekday or holiday-week effects in ordering.
-- Depot settings, truck sizes, costs and shelf capacities are illustrative
-  judgment calls, not industry figures.
+- Depot settings, truck sizes, costs and shelf capacities from real client could not be used. 
