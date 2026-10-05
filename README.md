@@ -4,7 +4,7 @@ This pipeline uses statistical tests to find the best model for a wide range of 
 
 **Live demo:** https://supply-chain-forecast.streamlit.app
 
-All sales, product and inventory data here are **synthetic**. The border data
+All sales, product and inventory data here are synthetic. The border data
 is public.
 
 ## Quick start
@@ -51,7 +51,7 @@ tests/
 
 **Border crossings.** Monthly inbound bus passengers, pedestrians and
 personal-vehicle passengers for one port, from the US Bureau of Transportation
-Statistics border crossing dataset (public). Two problems are fixed in code, not
+Statistics border crossing dataset. Two problems are fixed in code, not
 in the file: missing bus counts (Jun 2022, Oct 2023) are interpolated, and a
 recording error (Oct 2023 pedestrians reported as 1,539 against ~230,000 in
 neighbouring months) is flagged and interpolated. A month is flagged only if it
