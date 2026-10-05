@@ -1,10 +1,7 @@
-# Duty-free demand forecasting and ordering
+# Supply Chain Forecasting Pipeline
 
-Monthly demand forecasts with 90% prediction intervals for a small duty-free
-store next to a US–Mexico land port of entry, plus a layer that turns those
-forecasts into orders from three depots. A small Streamlit page shows the
-forecast for any product and month, lets you overlay what actually sold, and
-lists the ordering suggestions for that product's depot.
+This pipeline uses statistical tests to find the best model for a wide range of products, and produces monthly demand forecasts for a duty free store at the US-Mexico border. This demand information is synthesized with supply chain information and stocking priorities to suggest ordering from three different depots. A small Streamlit page shows the
+forecast and actual sales for any month, and lists the ordering suggestions
 
 All sales, product and inventory data here are **synthetic**. The border data
 is public.
